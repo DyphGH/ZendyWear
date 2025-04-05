@@ -12,6 +12,14 @@ body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
+  background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+  background-repeat: repeat;
+  animation: bgGlitch 5s infinite linear alternate;
+}
+
+@keyframes bgGlitch {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
 }
 
 /* Header Styles */
@@ -22,8 +30,9 @@ body {
   padding: 20px 40px;
   background: rgba(20, 20, 20, 0.95);
   border-bottom: 1px solid #333;
-  position: relative;
-  z-index: 10;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .nav-left, .nav-right {
@@ -51,14 +60,32 @@ body {
   color: #ff4655;
 }
 
+.icon-link img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  transition: transform 0.2s ease;
+}
+
 .icon-link img:hover {
   transform: scale(1.1);
+  opacity: 1;
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
   padding: 100px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero h1 {
@@ -80,11 +107,25 @@ body {
   background: #ff4655;
   color: white;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  animation: pulseGlow 2s infinite;
 }
 
 .hero button:hover {
   background: #ff5f6d;
+  box-shadow: 0 0 15px rgba(255, 70, 85, 0.5);
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 70, 85, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 70, 85, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(255, 70, 85, 0);
+  }
 }
 
 /* Footer */
