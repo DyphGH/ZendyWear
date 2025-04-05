@@ -183,3 +183,12 @@ footer {
   transform: translate(-50%, -50%);
   z-index: 1;
 }
+/* Cursor Light for About Page */
+.about-page .cursor-light {
+  background: radial-gradient(circle, rgba(255, 70, 85, 0.3) 0%, transparent 60%);
+  width: 160px;
+  height: 160px;
+  filter: blur(4px);
+  transition: top 0.05s ease, left 0.05s ease;
+}
+
