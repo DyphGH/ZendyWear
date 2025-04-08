@@ -11,7 +11,6 @@ html, body {
   font-family: 'Poppins', sans-serif;
   width: 100%;
   overflow-x: hidden;
-  overflow-y: auto;
   position: relative;
   min-height: 100vh;
   background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
@@ -292,7 +291,7 @@ footer {
   bottom: -28px;
   left: 50%;
   transform: translateX(-50%) translateY(0);
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.85);
   color: white;
   padding: 5px 10px;
   font-size: 12px;
