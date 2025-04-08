@@ -308,9 +308,8 @@ footer {
 }
 .global-tooltip {
   position: absolute;
-  top: 90px; /* Ajusta conforme tua header */
-  left: 50%;
-  transform: translateX(-50%);
+  top: 70px; /* ajusta conforme o espaço abaixo do ícone do user */
+  right: 120px; /* fixa a posição perto do ícone do bonequinho */
   background-color: rgba(0,0,0,0.85);
   color: white;
   padding: 6px 12px;
