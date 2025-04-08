@@ -306,3 +306,19 @@ footer {
 .cart-icon-wrapper:hover .cart-tooltip {
   opacity: 1;
 }
+.global-tooltip {
+  position: absolute;
+  top: 90px; /* Ajusta conforme tua header */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0,0,0,0.85);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 999;
+}
