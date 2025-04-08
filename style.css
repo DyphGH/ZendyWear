@@ -259,3 +259,28 @@ footer {
     transform: translateY(0);
   }
 }
+.user-icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.login-tooltip {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.user-icon-wrapper:hover .login-tooltip {
+  opacity: 1;
+}
