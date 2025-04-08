@@ -187,9 +187,7 @@ footer {
 
 /* Cursor Light */
 .cursor-light {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;
   width: 100px;
   height: 100px;
   pointer-events: none;
@@ -197,6 +195,8 @@ footer {
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
+}
+
 }
 
 /* Cursor Light for About Page */
