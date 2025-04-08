@@ -288,15 +288,16 @@ footer {
   position: absolute;
   bottom: -28px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(0);
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 5px 10px;
   font-size: 12px;
   border-radius: 4px;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   white-space: nowrap;
   z-index: 10;
 }
@@ -305,19 +306,6 @@ footer {
 .user-icon-wrapper:hover .login-tooltip,
 .cart-icon-wrapper:hover .cart-tooltip {
   opacity: 1;
-}
-.global-tooltip {
-  position: absolute;
-  top: 90px;
-  left: 800px;
-  background-color: rgba(0,0,0,0.85);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 12px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-  z-index: 999;
+  visibility: visible;
+  transform: translateX(-50%) translateY(5px);
 }
