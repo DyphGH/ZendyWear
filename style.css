@@ -93,11 +93,27 @@ body {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* camada escura pra dar contraste no texto */
+  background: rgba(0, 0, 0, 0.5);
   z-index: 0;
 }
 
-.hero h1, .hero p, .hero button {
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  font-family: 'Arial Black', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  color: #ddd;
+  font-weight: 300;
+  margin-bottom: 40px;
+  max-width: 700px;
+  line-height: 1.6;
   position: relative;
   z-index: 1;
 }
@@ -158,7 +174,6 @@ footer {
   z-index: 9999;
 }
 
-}
 /* Cursor Light for About Page */
 .about-page .cursor-light {
   background: radial-gradient(circle, rgba(255, 70, 85, 0.3) 0%, transparent 60%);
