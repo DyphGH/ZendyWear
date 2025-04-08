@@ -309,7 +309,7 @@ footer {
 .global-tooltip {
   position: absolute;
   top: 90px;
-  left: 1260px;
+  left: 800px;
   background-color: rgba(0,0,0,0.85);
   color: white;
   padding: 6px 12px;
