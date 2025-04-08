@@ -11,6 +11,7 @@ html, body {
   font-family: 'Poppins', sans-serif;
   width: 100%;
   overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
   min-height: 100vh;
   background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
@@ -33,7 +34,8 @@ html, body {
   border-bottom: 1px solid #333;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  overflow: visible;
 }
 
 .nav-left, .nav-right {
@@ -300,9 +302,9 @@ footer {
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
   white-space: nowrap;
-  max-width: 120px; /* Evita que ultrapasse a tela */
-  overflow: hidden; /* Garante que não empurre o layout */
-  text-overflow: ellipsis; /* Estilo padrão de "cortar com ..." */
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   z-index: 10;
 }
 
