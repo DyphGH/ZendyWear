@@ -1,47 +1,251 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zendy Wear</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
-</head>
-<body
-<body class="page-fade">
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <div class="cursor-light"></div>
+body {
+  background-color: #0f0f0f;
+  color: #f1f1f1;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+  background-repeat: repeat;
+  animation: bgGlitch 5s infinite linear alternate;
+}
 
-  <header class="header">
-    <div class="nav-left">
-      <a href="#" class="nav-link">Home</a>
-      <a href="#" class="nav-link">Catalog</a>
-      <a href="#" class="nav-link">Contact</a>
-    </div>
+@keyframes bgGlitch {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
 
-    <div class="logo">
-      <a href="about.html">
-        <img src="logo.png" alt="Zendy Wear logo">
-      </a>
-    </div>
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(20, 20, 20, 0.95);
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-    <div class="nav-right">
-      <a href="#" class="icon-link"><img src="search-icon.svg" alt="Search"></a>
-      <a href="#" class="icon-link"><img src="user-icon.svg" alt="User"></a>
-      <a href="#" class="icon-link"><img src="cart-icon.svg" alt="Cart"></a>
-    </div>
-  </header>
+.nav-left, .nav-right {
+  display: flex;
+  gap: 20px;
+}
 
-  <main>
-    <section class="hero">
-      <h1>Welcome to Zendy Wear</h1>
-      <p>Made for chaos. Worn by legends.</p>
-      <div class="shop-btn-wrapper">
-        <button class="shop-now">Shop Now</button>
-      </div>
-    </section>
-  </main>
+.logo img {
+  height: 100px;
+  filter: invert(1);
+}
 
-  <footer>
-    <p>&copy; 202
+.nav-link, .icon-link img {
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #ff4655;
+}
+
+.icon-link img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  transition: transform 0.2s ease;
+}
+
+.icon-link img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background-image: url('zendy-main.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  font-family: 'Arial Black', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  color: #ddd;
+  font-weight: 300;
+  margin-bottom: 40px;
+  max-width: 700px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* About Section */
+.about-hero {
+  position: relative;
+  background-image: url('graffiti-bg.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.about-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 50px;
+  border-radius: 12px;
+  color: white;
+  max-width: 800px;
+  z-index: 1;
+}
+
+.about-overlay h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.about-overlay p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Cursor Light */
+.cursor-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 80%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+/* Cursor Light for About Page */
+.about-page .cursor-light {
+  background: radial-gradient(circle, rgba(255, 70, 85, 0.3) 0%, transparent 60%);
+  width: 160px;
+  height: 160px;
+  filter: blur(4px);
+  transition: top 0.05s ease, left 0.05s ease;
+}
+
+.shop-btn-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.shop-now {
+  background: #ff4655;
+  color: #fff;
+  border: none;
+  padding: 14px 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+}
+
+.shop-now:hover {
+  transform: scale(1.05);
+}
+
+.shop-btn-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255, 70, 85, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 1;
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+.page-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInPage 1s ease-out forwards;
+}
+
+@keyframes fadeInPage {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
