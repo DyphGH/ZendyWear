@@ -197,8 +197,6 @@ footer {
   z-index: 9999;
 }
 
-}
-
 /* Cursor Light for About Page */
 .about-page .cursor-light {
   background: radial-gradient(circle, rgba(255, 70, 85, 0.3) 0%, transparent 60%);
@@ -238,7 +236,7 @@ footer {
   content: '';
   position: absolute;
   top: 50%;
-  right: 0%;
+  left: 50%;
   width: 150%;
   height: 150%;
   background: radial-gradient(circle, rgba(255, 70, 85, 0.4) 0%, transparent 70%);
@@ -296,8 +294,7 @@ footer {
 .cart-tooltip {
   position: absolute;
   bottom: -28px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 0; /* encosta à direita do ícone */
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 5px 10px;
@@ -308,6 +305,7 @@ footer {
   transition: opacity 0.2s ease;
   white-space: nowrap;
 }
+
 
 .search-icon-wrapper:hover .search-tooltip,
 .user-icon-wrapper:hover .login-tooltip,
