@@ -300,6 +300,9 @@ footer {
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
   white-space: nowrap;
+  max-width: 120px; /* Evita que ultrapasse a tela */
+  overflow: hidden; /* Garante que não empurre o layout */
+  text-overflow: ellipsis; /* Estilo padrão de "cortar com ..." */
   z-index: 10;
 }
 
