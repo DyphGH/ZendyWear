@@ -6,9 +6,8 @@
   <title>About Us – Zendy Wear</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 <body class="page-fade about-page">
-  <body class="about-page">
+
   <div class="cursor-light"></div>
 
   <header class="header">
@@ -25,26 +24,43 @@
     </div>
 
     <div class="nav-right">
-      <a href="#"><img src="search-icon.svg" alt="Search" /></a>
-      <a href="#"><img src="user-icon.svg" alt="User" /></a>
-      <a href="#"><img src="cart-icon.svg" alt="Cart" /></a>
+      <div class="search-icon-wrapper">
+        <a href="#" class="icon-link">
+          <img src="search-icon.svg" alt="Search" />
+          <span class="search-tooltip">Search</span>
+        </a>
+      </div>
+
+      <div class="user-icon-wrapper">
+        <a href="login.html" class="icon-link">
+          <img src="user-icon.svg" alt="User" />
+          <span class="login-tooltip">Login / Register</span>
+        </a>
+      </div>
+
+      <div class="cart-icon-wrapper">
+        <a href="#" class="icon-link">
+          <img src="cart-icon.svg" alt="Cart" />
+          <span class="cart-tooltip">Cart</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <main class="about-hero">
-  <div class="about-overlay">
-    <h1>About Zendy Wear</h1>
-    <p>
-      Zendy Wear was born from late-night sketches, digital rebellion, and ramen-induced dreams.  
-      We're not just streetwear. We're digital chaos stitched into fabric.
-    </p>
-  </div>
-</main>
-
+    <div class="about-overlay">
+      <h1>About Zendy Wear</h1>
+      <p>
+        Zendy Wear was born from late-night sketches, digital rebellion, and ramen-induced dreams.  
+        We're not just streetwear. We're digital chaos stitched into fabric.
+      </p>
+    </div>
+  </main>
 
   <footer>
     <p>&copy; 2025 Zendy Wear</p>
   </footer>
-<script src="script.js"></script>
+  
+  <script src="script.js"></script>
 </body>
 </html>
