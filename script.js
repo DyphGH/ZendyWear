@@ -4,3 +4,6 @@ window.addEventListener('DOMContentLoaded', () => {
     el.classList.add('show');
   });
 });
+window.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('show');
+});
