@@ -297,3 +297,23 @@ footer {
   visibility: visible;
   transform: translateX(-50%) translateY(5px);
 }
+.shop-now {
+  background: #ff4655;
+  color: #ffffff;
+  border: none;
+  padding: 14px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
