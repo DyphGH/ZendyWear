@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Scroll suave
   const button = document.querySelector('.shop-button');
   const target = document.querySelector('#collection');
+
   if (button && target) {
     button.addEventListener('click', (e) => {
       e.preventDefault();
@@ -17,37 +18,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Typewriter com glitch (Título e Subtítulo em sequência)
-  const typeText = (element, text, delay = 50, callback) => {
+  // Glitch typewriter for title and subtitle
+  const typewriterEffect = (element, text, delay = 50, onComplete) => {
     let index = 0;
     const glitchChars = ['$', '#', '%', '&', '*', '!', '?', '/', '+', '=', '~'];
     const type = () => {
       if (index <= text.length) {
         const current = text.slice(0, index);
-        const glitch = glitchChars[Math.floor(Math.random() * glitchChars.length)];
-        element.innerHTML = current + `<span class="glitch-char">${glitch}</span><span class="cursor">|</span>`;
+        const randomChar = glitchChars[Math.floor(Math.random() * glitchChars.length)];
+        element.innerHTML = current + `<span class="glitch-char">${randomChar}</span>`;
         index++;
         setTimeout(type, delay);
       } else {
         element.textContent = text;
-        if (callback) callback();
+        if (onComplete) onComplete();
       }
     };
     type();
   };
 
-  const titleEl = document.querySelector('.typewriter');
-  const subtitleEl = document.querySelector('.subtitle-typewriter');
+  const title = document.querySelector('.typewriter');
+  const subtitle = document.querySelector('.subtitle-typewriter');
 
-  if (titleEl && subtitleEl) {
-    const titleText = titleEl.textContent;
-    const subtitleText = subtitleEl.textContent;
-    titleEl.textContent = '';
-    subtitleEl.textContent = '';
-    typeText(titleEl, titleText, 70, () => {
+  if (title && subtitle) {
+    const titleText = title.textContent;
+    const subtitleText = subtitle.textContent;
+
+    title.textContent = '';
+    subtitle.textContent = '';
+
+    typewriterEffect(title, titleText, 60, () => {
       setTimeout(() => {
-        typeText(subtitleEl, subtitleText, 35);
-      }, 200);
+        typewriterEffect(subtitle, subtitleText, 30);
+      }, 300);
     });
   }
 });
