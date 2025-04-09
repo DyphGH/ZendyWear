@@ -7,5 +7,3 @@ window.addEventListener("scroll", () => {
     body.classList.remove("scrolled");
   }
 });
-document.documentElement.style.overflow = 'hidden';
-document.documentElement.style.overflowY = 'scroll';
