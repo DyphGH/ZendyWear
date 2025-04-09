@@ -161,3 +161,11 @@ body {
   font-size: 0.8rem;
   color: #aaa;
 }
+.page-fade {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.page-fade.show {
+  opacity: 1;
+}
