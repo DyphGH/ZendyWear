@@ -1,68 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zendy Wear</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
-<body class="page-fade">
+<body>
+  <header class="header">
+    <div class="nav-left">
+      <a href="#" class="nav-link">Home</a>
+      <a href="#" class="nav-link">Catalog</a>
+      <a href="#" class="nav-link">Contact</a>
+    </div>
+    <div class="logo">
+      <img src="logo.png" alt="Zendy Wear Logo">
+    </div>
+    <div class="nav-right">
+      <a href="#" class="icon-link"><img src="search-icon.svg" alt="Search"></a>
+      <a href="#" class="icon-link"><img src="user-icon.svg" alt="User"></a>
+      <a href="#" class="icon-link"><img src="cart-icon.svg" alt="Cart"></a>
+    </div>
+  </header>
 
-  <div class="site-wrapper">
-    <div class="cursor-light"></div>
-
-    <header class="header">
-      <div class="nav-left">
-        <a href="#" class="nav-link">Home</a>
-        <a href="#" class="nav-link">Catalog</a>
-        <a href="#" class="nav-link">Contact</a>
-      </div>
-
-      <div class="logo">
-        <a href="about.html">
-          <img src="logo.png" alt="Zendy Wear logo" />
-        </a>
-      </div>
-
-      <div class="nav-right">
-        <div class="search-icon-wrapper">
-          <a href="#" class="icon-link">
-            <img src="search-icon.svg" alt="Search" />
-            <span class="search-tooltip">Search</span>
-          </a>
-        </div>
-
-        <div class="user-icon-wrapper">
-          <a href="login.html" class="icon-link">
-            <img src="user-icon.svg" alt="User" />
-            <span class="login-tooltip">Login / Register</span>
-          </a>
-        </div>
-
-        <div class="cart-icon-wrapper">
-          <a href="#" class="icon-link">
-            <img src="cart-icon.svg" alt="Cart" />
-            <span class="cart-tooltip">Cart</span>
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero">
-        <h1>Welcome to Zendy Wear</h1>
-        <p>Made for chaos. Worn by legends.</p>
-        <div class="shop-btn-wrapper">
-          <button class="shop-now">Shop Now</button>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <p>&copy; 2025 Zendy Wear</p>
-    </footer>
-  </div>
+  <main>
+    <section class="hero">
+      <h1>Welcome to Zendy Wear</h1>
+      <p>Made for chaos. Worn by legends.</p>
+      <button class="shop-now">Shop Now</button>
+    </section>
+  </main>
 
 </body>
 </html>
