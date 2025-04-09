@@ -10,12 +10,6 @@ body {
   background-color: #0f0f0f;
   color: #fff;
   overflow-x: hidden;
-  scrollbar-width: none;
-}
-
-body::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
 }
 
 /* HEADER */
@@ -51,17 +45,6 @@ body.scrolled .header {
 
 .nav-link:hover {
   color: #ff4655;
-}
-
-.icon-link img {
-  width: 20px;
-  height: 20px;
-  filter: brightness(90%);
-  transition: filter 0.3s;
-}
-
-.icon-link:hover img {
-  filter: brightness(120%);
 }
 
 .logo img {
@@ -120,15 +103,4 @@ body.scrolled .header {
   100% {
     box-shadow: 0 0 10px rgba(255, 70, 85, 0.3);
   }
-}
-/* SUMIR COM A SCROLLBAR */
-body {
-  scrollbar-width: none;         /* Firefox */
-  -ms-overflow-style: none;      /* IE/Edge */
-  overflow-y: scroll;            /* mantém rolagem ativa */
-}
-
-body::-webkit-scrollbar {
-  width: 0px;                    /* Chrome/Safari */
-  background: transparent;
 }
