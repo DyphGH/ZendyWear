@@ -20,4 +20,12 @@ body {
   background-color: rgba(15, 15, 15, 0.8);
   z-index: 1000;
   backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header img {
+  height: 60px;
+  filter: invert(1);
 }
