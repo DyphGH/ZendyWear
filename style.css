@@ -222,12 +222,19 @@ footer {
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: transform 0.3s ease;
+  letter-spacing: 1.5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0 0 2px rgba(0,0,0,0.2);
+  animation: buttonPulse 2s infinite ease-in-out;
 }
 
-.shop-now:hover {
-  transform: scale(1.05);
+@keyframes buttonPulse {
+  0% { box-shadow: 0 0 10px rgba(255, 70, 85, 0.4); }
+  50% { box-shadow: 0 0 25px rgba(255, 70, 85, 0.8); }
+  100% { box-shadow: 0 0 10px rgba(255, 70, 85, 0.4); }
 }
 
 .shop-btn-wrapper::before {
@@ -297,42 +304,14 @@ footer {
   visibility: visible;
   transform: translateX(-50%) translateY(5px);
 }
-.shop-now {
-  background: #ff4655;
-  color: #ffffff;
-  border: none;
-  padding: 14px 40px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 50px;
-  cursor: pointer;
-  z-index: 2;
-  position: relative;
-  overflow: hidden;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-smooth: always;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-shadow: 0 0 2px rgba(0,0,0,0.2);
-}
-body::-webkit-scrollbar {
-  width: 8px;
-}
 
-body::-webkit-scrollbar-track {
+/* Optional: hide scrollbar entirely */
+body::-webkit-scrollbar {
+  width: 0px;
   background: transparent;
 }
 
-body::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  border: 2px solid transparent;
-  background-clip: content-box;
-}
-
 body {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
