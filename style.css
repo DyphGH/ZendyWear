@@ -15,6 +15,9 @@ body {
   background-attachment: fixed;
   color: #fff;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .header {
@@ -101,4 +104,12 @@ body {
 .header img {
   height: 60px;
   filter: invert(1);
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.8rem;
+  color: #aaa;
 }
