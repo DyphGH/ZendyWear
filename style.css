@@ -23,6 +23,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
+}
+
+.nav-left {
+  position: absolute;
+  left: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ff4655;
 }
 
 .header img {
