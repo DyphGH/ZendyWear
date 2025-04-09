@@ -82,6 +82,19 @@ body {
   font-size: 1.2rem;
   line-height: 1.6;
   color: #ddd;
+  margin-bottom: 10px;
+}
+
+.about-overlay .typewriter {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.about-overlay .subtitle-typewriter {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ddd;
 }
 
 .header {
@@ -299,4 +312,3 @@ body {
   from { opacity: 1; transform: translateX(0); }
   to { opacity: 0.3; transform: translateX(1px); }
 }
-
