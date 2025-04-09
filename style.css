@@ -166,3 +166,31 @@ body::-webkit-scrollbar {
   font-size: 0.8rem;
   color: #aaa;
 }
+.collection-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* fundo levemente escurecido */
+  backdrop-filter: blur(4px);
+  text-align: center;
+}
+
+.collection-content {
+  max-width: 700px;
+  color: #fff;
+}
+
+.collection-content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.collection-content p {
+  font-size: 1.2rem;
+  color: #ccc;
+  line-height: 1.6;
+}
