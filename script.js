@@ -5,10 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     el.classList.add('show');
   });
 
-  // Scroll suave com JS
+  // Scroll suave
   const button = document.querySelector('.shop-button');
   const target = document.querySelector('#collection');
-
   if (button && target) {
     button.addEventListener('click', (e) => {
       e.preventDefault();
@@ -18,27 +17,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Typewriter + glitch effect para múltiplos elementos
-  const typewriterElements = document.querySelectorAll('.typewriter');
-  const glitchChars = ['$', '#', '%', '&', '*', '!', '?', '/', '+', '=', '~'];
-
-  typewriterElements.forEach((el, i) => {
-    const fullText = el.textContent;
-    el.textContent = '';
+  // Typewriter com glitch (Título e Subtítulo em sequência)
+  const typeText = (element, text, delay = 50, callback) => {
     let index = 0;
-
+    const glitchChars = ['$', '#', '%', '&', '*', '!', '?', '/', '+', '=', '~'];
     const type = () => {
-      if (index <= fullText.length) {
-        const current = fullText.slice(0, index);
-        const randomChar = glitchChars[Math.floor(Math.random() * glitchChars.length)];
-        el.innerHTML = current + `<span class="glitch-char">${randomChar}</span>`;
+      if (index <= text.length) {
+        const current = text.slice(0, index);
+        const glitch = glitchChars[Math.floor(Math.random() * glitchChars.length)];
+        element.innerHTML = current + `<span class="glitch-char">${glitch}</span><span class="cursor">|</span>`;
         index++;
-        setTimeout(type, 40 + i * 10);
+        setTimeout(type, delay);
       } else {
-        el.textContent = fullText;
+        element.textContent = text;
+        if (callback) callback();
       }
     };
+    type();
+  };
 
-    setTimeout(type, i * 1000); // Delay entre elementos
-  });
+  const titleEl = document.querySelector('.typewriter');
+  const subtitleEl = document.querySelector('.subtitle-typewriter');
+
+  if (titleEl && subtitleEl) {
+    const titleText = titleEl.textContent;
+    const subtitleText = subtitleEl.textContent;
+    titleEl.textContent = '';
+    subtitleEl.textContent = '';
+    typeText(titleEl, titleText, 70, () => {
+      setTimeout(() => {
+        typeText(subtitleEl, subtitleText, 35);
+      }, 200);
+    });
+  }
 });
