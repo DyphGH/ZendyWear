@@ -244,26 +244,24 @@ body {
   transition: transform 0.3s ease;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 20px rgba(255, 70, 85, 0.6);
 }
 
 .shop-button:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 0, 200, 0.9), 0 0 40px rgba(0, 255, 247, 0.9);
 }
 
 .shop-button::before,
 .shop-button::after {
-  content: 'SHOP NOW';
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ff4655;
-  color: white;
+  background: inherit;
   z-index: -1;
   opacity: 0;
   pointer-events: none;
@@ -272,13 +270,13 @@ body {
 .shop-button::before {
   animation: glitch 1s infinite linear alternate-reverse;
   clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-  color: #ff00c8;
+  background: #ff00c8;
 }
 
 .shop-button::after {
   animation: glitch 1s infinite linear;
   clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
-  color: #00fff7;
+  background: #00fff7;
 }
 
 @keyframes glitch {
@@ -287,19 +285,19 @@ body {
     opacity: 0.2;
   }
   20% {
-    transform: translate(-2px, -2px);
+    transform: translate(-3px, -3px);
     opacity: 0.4;
   }
   40% {
-    transform: translate(2px, 2px);
+    transform: translate(3px, 3px);
     opacity: 0.3;
   }
   60% {
-    transform: translate(-1px, 1px);
+    transform: translate(-2px, 2px);
     opacity: 0.5;
   }
   80% {
-    transform: translate(1px, -1px);
+    transform: translate(2px, -2px);
     opacity: 0.4;
   }
   100% {
