@@ -20,6 +20,44 @@ body {
   min-height: 100vh;
 }
 
+.about-page {
+  background-image: url('graffiti-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.about-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  flex: 1;
+}
+
+.about-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 800px;
+  color: #fff;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.about-overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-overlay p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
 .header {
   position: sticky;
   top: 0;
@@ -31,7 +69,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: sticky;
 }
 
 .nav-left {
@@ -83,10 +120,10 @@ body {
   transform: translateY(10px);
 }
 
-.icon-link img {
+.icon-link svg {
   width: 20px;
   height: 20px;
-  transition: filter 0.3s, transform 0.3s;
+  transition: stroke 0.3s;
 }
 
 .nav-link {
