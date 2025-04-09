@@ -49,21 +49,37 @@ body {
   color: #fff;
   font-size: 12px;
   transition: color 0.3s;
+  position: relative;
 }
 
-.icon-link:hover {
-  color: #ff4655;
+.icon-link span {
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.3s, transform 0.3s;
+  position: absolute;
+  top: 25px;
+  white-space: nowrap;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  pointer-events: none;
+}
+
+.icon-link:hover span {
+  opacity: 1;
+  transform: translateY(10px);
 }
 
 .icon-link img {
   width: 20px;
   height: 20px;
-  filter: brightness(90%);
+  filter: brightness(100%) invert(1);
   transition: filter 0.3s;
 }
 
 .icon-link:hover img {
-  filter: brightness(120%);
+  filter: brightness(150%) invert(1);
 }
 
 .nav-link {
