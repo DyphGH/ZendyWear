@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     el.classList.add('show');
   });
 
-  // Scroll suave
+  // Scroll suave com JS
   const button = document.querySelector('.shop-button');
   const target = document.querySelector('#collection');
 
@@ -18,26 +18,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Typewriter + glitch effect
-  const title = document.querySelector('.typewriter');
-  if (title) {
-    const fullText = title.textContent;
-    title.textContent = '';
+  // Typewriter + glitch effect para múltiplos elementos
+  const typewriterElements = document.querySelectorAll('.typewriter');
+  const glitchChars = ['$', '#', '%', '&', '*', '!', '?', '/', '+', '=', '~'];
+
+  typewriterElements.forEach((el, i) => {
+    const fullText = el.textContent;
+    el.textContent = '';
     let index = 0;
-    const glitchChars = ['$', '#', '%', '&', '*', '!', '?', '/', '+', '=', '~'];
 
     const type = () => {
       if (index <= fullText.length) {
         const current = fullText.slice(0, index);
         const randomChar = glitchChars[Math.floor(Math.random() * glitchChars.length)];
-        title.innerHTML = current + `<span class="glitch-char">${randomChar}</span>`;
+        el.innerHTML = current + `<span class="glitch-char">${randomChar}</span>`;
         index++;
-        setTimeout(type, 50);
+        setTimeout(type, 40 + i * 10);
       } else {
-        title.textContent = fullText;
+        el.textContent = fullText;
       }
     };
 
-    type();
-  }
+    setTimeout(type, i * 1000); // Delay entre elementos
+  });
 });
