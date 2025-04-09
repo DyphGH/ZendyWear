@@ -30,56 +30,6 @@ body {
   padding: 0 20px;
 }
 
-.shop-button {
-  background: #ff4655;
-  color: white;
-  border: none;
-  padding: 14px 40px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 50px;
-  cursor: pointer;
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  z-index: 1;
-  transition: transform 0.3s ease;
-  overflow: hidden;
-}
-
-.shop-button:hover {
-  transform: scale(1.05);
-}
-
-.shop-button::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 70, 85, 0.4) 0%, transparent 70%);
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: 0;
-  animation: glowPulse 2s infinite ease-in-out;
-}
-
-@keyframes glowPulse {
-  0% {
-    opacity: 0.3;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: translate(-50%, -50%) scale(1.2);
-  }
-  100% {
-    opacity: 0.3;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
 .about-page {
   background-image: url('graffiti-bg.png');
   background-size: cover;
