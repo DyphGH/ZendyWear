@@ -8,6 +8,11 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #0f0f0f;
+  background-image: url('zendy-main.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #fff;
   overflow-x: hidden;
 }
