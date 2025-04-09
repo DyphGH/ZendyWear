@@ -305,3 +305,13 @@ body {
     opacity: 0.2;
   }
 }
+.glitch-type .glitch-char {
+  color: #ff4655;
+  font-weight: bold;
+  animation: glitchBlink 0.1s infinite alternate;
+}
+
+@keyframes glitchBlink {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0.3; transform: translateX(1px); }
+}
