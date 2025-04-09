@@ -194,3 +194,16 @@ body::-webkit-scrollbar {
   color: #ccc;
   line-height: 1.6;
 }
+main {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
