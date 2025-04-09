@@ -5,7 +5,8 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  height: 100%;
   font-family: 'Poppins', sans-serif;
   background-color: #0f0f0f;
   background-image: url('zendy-main.png');
@@ -15,11 +16,8 @@ body {
   background-attachment: fixed;
   color: #fff;
   overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 body::-webkit-scrollbar {
@@ -27,12 +25,23 @@ body::-webkit-scrollbar {
   height: 0;
 }
 
+body {
+  scrollbar-width: none; /* Firefox */
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .homepage-hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 120px);
   text-align: center;
   padding: 0 20px;
 }
@@ -166,13 +175,14 @@ body::-webkit-scrollbar {
   font-size: 0.8rem;
   color: #aaa;
 }
+
 .collection-section {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 20px;
-  background-color: rgba(0, 0, 0, 0.7); /* fundo levemente escurecido */
+  background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
   text-align: center;
 }
@@ -193,17 +203,4 @@ body::-webkit-scrollbar {
   font-size: 1.2rem;
   color: #ccc;
   line-height: 1.6;
-}
-main {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
-}
-
-.snap-section {
-  scroll-snap-align: start;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
