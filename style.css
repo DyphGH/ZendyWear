@@ -20,18 +20,6 @@ body {
   min-height: 100vh;
 }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-  transition-delay: 0.2s;
-}
-
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .homepage-hero {
   display: flex;
   flex-direction: column;
@@ -221,4 +209,3 @@ body {
   font-size: 0.8rem;
   color: #aaa;
 }
-
