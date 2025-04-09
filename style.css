@@ -60,6 +60,10 @@ body {
   position: relative;
 }
 
+.icon-link:hover {
+  color: #ff4655;
+}
+
 .icon-link span {
   opacity: 0;
   transform: translateY(5px);
@@ -77,18 +81,12 @@ body {
 .icon-link:hover span {
   opacity: 1;
   transform: translateY(10px);
-  color: #ff4655;
 }
 
 .icon-link img {
   width: 20px;
   height: 20px;
-  transition: filter 0.3s;
-  filter: brightness(100%) invert(1);
-}
-
-.icon-link:hover img {
-  filter: brightness(120%) sepia(1) hue-rotate(-10deg) saturate(600%) contrast(1.2);
+  transition: filter 0.3s, transform 0.3s;
 }
 
 .nav-link {
@@ -114,4 +112,3 @@ body {
   font-size: 0.8rem;
   color: #aaa;
 }
-
