@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zendy Wear</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
 <body class="page-fade">
@@ -15,7 +15,9 @@
       <a href="#" class="nav-link">Contact</a>
     </div>
 
-    <a href="about.html"><img src="logo.png" alt="Zendy Wear Logo" class="main-logo"></a>
+    <a href="about.html">
+      <img src="logo.png" alt="Zendy Wear Logo" class="main-logo" />
+    </a>
 
     <div class="nav-right">
       <a href="#" class="icon-link">
@@ -45,7 +47,16 @@
   </header>
 
   <main class="fade-in">
-</main>
+    <section class="homepage-hero">
+      <button class="shop-button" onclick="document.getElementById('collections').scrollIntoView({ behavior: 'smooth' });">
+        Shop Now
+      </button>
+    </section>
+
+    <section id="collections">
+      <!-- Future collection blocks go here -->
+    </section>
+  </main>
 
   <footer class="footer">
     <p>&copy; 2025 Zendy Wear</p>
