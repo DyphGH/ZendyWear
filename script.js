@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Fade-in da página e elementos
+  // Fade-in
   document.body.classList.add('show');
   document.querySelectorAll('.fade-in').forEach(el => {
     el.classList.add('show');
   });
 
-  // Scroll suave para a coleção
+  // Scroll suave
   const button = document.querySelector('.shop-button');
   const target = document.querySelector('#collection');
 
@@ -18,16 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Typewriter glitch effect
-  const title = document.querySelector('.hero-overlay h1');
+  // Typewriter + glitch effect
+  const title = document.querySelector('.typewriter');
   if (title) {
     const fullText = title.textContent;
     title.textContent = '';
-    title.classList.add('glitch-type');
-
     let index = 0;
     const glitchChars = ['$', '#', '%', '&', '*', '!', '?', '/', '+', '=', '~'];
-    const speed = 45;
 
     const type = () => {
       if (index <= fullText.length) {
@@ -35,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomChar = glitchChars[Math.floor(Math.random() * glitchChars.length)];
         title.innerHTML = current + `<span class="glitch-char">${randomChar}</span>`;
         index++;
-        setTimeout(type, speed);
+        setTimeout(type, 50);
       } else {
-        title.textContent = fullText; // Final clean text
+        title.textContent = fullText;
       }
     };
 
