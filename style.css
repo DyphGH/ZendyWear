@@ -274,3 +274,14 @@ footer {
   visibility: visible;
   transform: translateX(-50%) translateY(5px);
 }
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+}
