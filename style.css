@@ -204,6 +204,7 @@ body {
   color: #ccc;
   line-height: 1.6;
 }
+
 .hero-overlay {
   background: rgba(0, 0, 0, 0.6);
   padding: 40px;
@@ -280,31 +281,14 @@ body {
 }
 
 @keyframes glitch {
-  0% {
-    transform: translate(0);
-    opacity: 0.2;
-  }
-  20% {
-    transform: translate(-3px, -3px);
-    opacity: 0.4;
-  }
-  40% {
-    transform: translate(3px, 3px);
-    opacity: 0.3;
-  }
-  60% {
-    transform: translate(-2px, 2px);
-    opacity: 0.5;
-  }
-  80% {
-    transform: translate(2px, -2px);
-    opacity: 0.4;
-  }
-  100% {
-    transform: translate(0);
-    opacity: 0.2;
-  }
+  0% { transform: translate(0); opacity: 0.2; }
+  20% { transform: translate(-3px, -3px); opacity: 0.4; }
+  40% { transform: translate(3px, 3px); opacity: 0.3; }
+  60% { transform: translate(-2px, 2px); opacity: 0.5; }
+  80% { transform: translate(2px, -2px); opacity: 0.4; }
+  100% { transform: translate(0); opacity: 0.2; }
 }
+
 .glitch-type .glitch-char {
   color: #ff4655;
   font-weight: bold;
@@ -315,26 +299,4 @@ body {
   from { opacity: 1; transform: translateX(0); }
   to { opacity: 0.3; transform: translateX(1px); }
 }
-/* Typewriter effect */
-.typewriter {
-  overflow: hidden;
-  white-space: nowrap;
-  display: inline-block;
-  border-right: 2px solid #fff;
-  animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
-  font-weight: bold;
-}
 
-.typewriter.delay {
-  animation-delay: 2.2s, 2.2s;
-}
-
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blink {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: #ff4655; }
-}
