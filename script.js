@@ -5,14 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
     el.classList.add('show');
   });
 
-  // JS scroll (intercepta o click e faz smooth scroll)
+  // Scroll suave com JS
   const button = document.querySelector('.shop-button');
   const target = document.querySelector('#collection');
 
   if (button && target) {
     button.addEventListener('click', (e) => {
-      e.preventDefault(); // impede o comportamento padrão do link
-      target.scrollIntoView({ behavior: 'smooth' });
+      e.preventDefault(); // Impede scroll instantâneo
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }, 50); // Pequeno delay evita conflito com HTML default
     });
   }
 });
