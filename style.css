@@ -121,3 +121,14 @@ body.scrolled .header {
     box-shadow: 0 0 10px rgba(255, 70, 85, 0.3);
   }
 }
+/* SUMIR COM A SCROLLBAR */
+body {
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;      /* IE/Edge */
+  overflow-y: scroll;            /* mantém rolagem ativa */
+}
+
+body::-webkit-scrollbar {
+  width: 0px;                    /* Chrome/Safari */
+  background: transparent;
+}
