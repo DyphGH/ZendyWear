@@ -192,30 +192,46 @@ body {
 .collection-section {
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 80px 20px 20px;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
+}
+
+.collection-title {
   text-align: center;
+  margin-bottom: 40px;
 }
 
-.collection-content {
-  max-width: 700px;
-  color: #fff;
+.collection-title h2,
+.collection-title p {
+  opacity: 0;
 }
 
-.collection-content h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-  font-family: 'Bebas Neue', sans-serif;
+.collection-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.collection-content p {
-  font-size: 1.2rem;
-  color: #ccc;
-  line-height: 1.6;
+.collection-grid img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.collection-grid img.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .hero-overlay {
@@ -228,16 +244,18 @@ body {
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-.hero-overlay h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.hero-overlay h1,
+.hero-overlay p {
+  opacity: 0;
 }
 
-.hero-overlay p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #ddd;
-  margin-bottom: 30px;
+.hero-overlay h1.typewriter,
+.hero-overlay p.typewriter-sub {
+  border-right: 2px solid #fff;
+  animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
 }
 
 .shop-button {
@@ -302,7 +320,7 @@ body {
   100% { transform: translate(0); opacity: 0.2; }
 }
 
-.glitch-type .glitch-char {
+.glitch-char {
   color: #ff4655;
   font-weight: bold;
   animation: glitchBlink 0.1s infinite alternate;
@@ -311,4 +329,14 @@ body {
 @keyframes glitchBlink {
   from { opacity: 1; transform: translateX(0); }
   to { opacity: 0.3; transform: translateX(1px); }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #ff4655; }
 }
