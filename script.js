@@ -1,4 +1,4 @@
-function glitchCharEffect(el, finalText, delay = 60, onComplete = null) {
+function glitchCharEffect(el, finalText, delay = 20, onComplete = null) {
   const chars = '!@#$%^&*()_+=<>?/|~`"[]{};:';
   el.textContent = '';
   const spans = [];
