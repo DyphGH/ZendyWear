@@ -1,9 +1,8 @@
-function glitchCharEffect(el, finalText, delay = 15, onComplete = null) {
-  const chars = '!@#$%^&*
+function glitchCharEffect(el, finalText, delay = 20, onComplete = null) {
+  const chars = '#$%&@*';
   el.textContent = '';
   const spans = [];
 
-  // Criar spans para cada letra
   finalText.split('').forEach(char => {
     const span = document.createElement('span');
     span.textContent = '';
@@ -21,7 +20,7 @@ function glitchCharEffect(el, finalText, delay = 15, onComplete = null) {
 
     const { span, final } = spans[i];
     let count = 0;
-    const maxIterations = 5;
+    const maxIterations = 2;
 
     const scramble = setInterval(() => {
       span.textContent = chars[Math.floor(Math.random() * chars.length)];
@@ -30,9 +29,9 @@ function glitchCharEffect(el, finalText, delay = 15, onComplete = null) {
         clearInterval(scramble);
         span.textContent = final;
         i++;
-        revealNext(); // Passar para a próxima letra
+        revealNext();
       }
-    }, 30);
+    }, 12); // ultra rápido
   }
 
   revealNext();
@@ -48,8 +47,8 @@ window.addEventListener('DOMContentLoaded', () => {
       const pText = p.textContent;
       h1.textContent = '';
       p.textContent = '';
-      glitchCharEffect(h1, h1Text, 50, () => {
-        setTimeout(() => glitchCharEffect(p, pText, 30), 400);
+      glitchCharEffect(h1, h1Text, 20, () => {
+        setTimeout(() => glitchCharEffect(p, pText, 15), 100);
       });
     }
   }
@@ -63,8 +62,8 @@ window.addEventListener('DOMContentLoaded', () => {
       const pText = p.textContent;
       h1.textContent = '';
       p.textContent = '';
-      glitchCharEffect(h1, h1Text, 50, () => {
-        setTimeout(() => glitchCharEffect(p, pText, 30), 400);
+      glitchCharEffect(h1, h1Text, 20, () => {
+        setTimeout(() => glitchCharEffect(p, pText, 15), 100);
       });
     }
   }
