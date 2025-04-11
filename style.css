@@ -324,3 +324,25 @@ body {
   80% { opacity: 1; transform: translate(-1px, -1px); }
   100% { opacity: 1; transform: translate(0); }
 }
+
+.collection-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 60px;
+  height: 100%;
+}
+
+.collection-content {
+  max-width: 500px;
+  text-align: left;
+}
+
+.collection-spotlight {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
