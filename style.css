@@ -190,6 +190,7 @@ body {
 .collection-content {
   max-width: 700px;
   color: #fff;
+  text-align: left;
 }
 
 .collection-content h2 {
