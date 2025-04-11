@@ -1,34 +1,21 @@
-// Faz fade-in suave nos elementos com a classe .fade-in
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.fade-in').forEach(el => {
-    el.classList.add('show');
-  });
-});
-window.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.add('show');
-});
-// Fade in da página inteira
-window.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.add('show');
-
-  // Ativa fade-in em elementos específicos
-  document.querySelectorAll('.fade-in').forEach(el => {
-    el.classList.add('show');
-  });
-});
-
-function animateGlitchText(element, delay = 50, onComplete = null) {
-  const text = element.textContent;
-  element.textContent = '';
+function decodeTextEffect(element, finalText, delay = 50, onComplete = null) {
+  const characters = '!@#$%^&*()_+=<>?/|~`"[]{};:';
+  let displayText = '';
   let i = 0;
 
   const interval = setInterval(() => {
-    const span = document.createElement('span');
-    span.textContent = text[i];
-    span.classList.add('glitch-char');
-    element.appendChild(span);
-    i++;
-    if (i >= text.length) {
+    if (i < finalText.length) {
+      displayText = finalText
+        .split('')
+        .map((char, index) => {
+          if (index < i) return finalText[index];
+          return characters[Math.floor(Math.random() * characters.length)];
+        })
+        .join('');
+      element.textContent = displayText;
+      i++;
+    } else {
+      element.textContent = finalText;
       clearInterval(interval);
       if (onComplete) onComplete();
     }
@@ -41,8 +28,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const h1 = hero.querySelector('h1');
     const p = hero.querySelector('p');
     if (h1 && p) {
-      animateGlitchText(h1, 80, () => {
-        setTimeout(() => animateGlitchText(p, 30), 300);
+      const h1Text = h1.textContent;
+      const pText = p.textContent;
+      h1.textContent = '';
+      p.textContent = '';
+      decodeTextEffect(h1, h1Text, 50, () => {
+        setTimeout(() => decodeTextEffect(p, pText, 30), 400);
       });
     }
   }
@@ -52,8 +43,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const h1 = about.querySelector('h1');
     const p = about.querySelector('p');
     if (h1 && p) {
-      animateGlitchText(h1, 80, () => {
-        setTimeout(() => animateGlitchText(p, 30), 300);
+      const h1Text = h1.textContent;
+      const pText = p.textContent;
+      h1.textContent = '';
+      p.textContent = '';
+      decodeTextEffect(h1, h1Text, 50, () => {
+        setTimeout(() => decodeTextEffect(p, pText, 30), 400);
       });
     }
   }
