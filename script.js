@@ -1,25 +1,41 @@
-function decodeTextEffect(element, finalText, delay = 50, onComplete = null) {
-  const characters = '!@#$%^&*()_+=<>?/|~`"[]{};:';
-  let displayText = '';
+function glitchCharEffect(el, finalText, delay = 60, onComplete = null) {
+  const chars = '!@#$%^&*()_+=<>?/|~`"[]{};:';
+  el.textContent = '';
+  const spans = [];
+
+  // Criar spans para cada letra
+  finalText.split('').forEach(char => {
+    const span = document.createElement('span');
+    span.textContent = '';
+    el.appendChild(span);
+    spans.push({ span, final: char });
+  });
+
   let i = 0;
 
-  const interval = setInterval(() => {
-    if (i < finalText.length) {
-      displayText = finalText
-        .split('')
-        .map((char, index) => {
-          if (index < i) return finalText[index];
-          return characters[Math.floor(Math.random() * characters.length)];
-        })
-        .join('');
-      element.textContent = displayText;
-      i++;
-    } else {
-      element.textContent = finalText;
-      clearInterval(interval);
+  function revealNext() {
+    if (i >= spans.length) {
       if (onComplete) onComplete();
+      return;
     }
-  }, delay);
+
+    const { span, final } = spans[i];
+    let count = 0;
+    const maxIterations = 5;
+
+    const scramble = setInterval(() => {
+      span.textContent = chars[Math.floor(Math.random() * chars.length)];
+      count++;
+      if (count >= maxIterations) {
+        clearInterval(scramble);
+        span.textContent = final;
+        i++;
+        revealNext(); // Passar para a próxima letra
+      }
+    }, 30);
+  }
+
+  revealNext();
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -32,8 +48,8 @@ window.addEventListener('DOMContentLoaded', () => {
       const pText = p.textContent;
       h1.textContent = '';
       p.textContent = '';
-      decodeTextEffect(h1, h1Text, 50, () => {
-        setTimeout(() => decodeTextEffect(p, pText, 30), 400);
+      glitchCharEffect(h1, h1Text, 50, () => {
+        setTimeout(() => glitchCharEffect(p, pText, 30), 400);
       });
     }
   }
@@ -47,8 +63,8 @@ window.addEventListener('DOMContentLoaded', () => {
       const pText = p.textContent;
       h1.textContent = '';
       p.textContent = '';
-      decodeTextEffect(h1, h1Text, 50, () => {
-        setTimeout(() => decodeTextEffect(p, pText, 30), 400);
+      glitchCharEffect(h1, h1Text, 50, () => {
+        setTimeout(() => glitchCharEffect(p, pText, 30), 400);
       });
     }
   }
