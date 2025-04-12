@@ -82,3 +82,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
   fadeInElements.forEach(el => observer.observe(el));
 });
+
+
+// Carrossel automático para coleção com fade + zoom
+window.addEventListener('DOMContentLoaded', () => {
+  const spotlight = document.querySelector('.collection-spotlight');
+  if (!spotlight) return;
+
+  const imageList = ['e30s.png', 'supras.png', 'r32s.png'];
+  let current = 0;
+
+  const img = spotlight.querySelector('.carousel-image');
+  if (!img) return;
+
+  function showNextImage() {
+    img.classList.remove('show');
+    setTimeout(() => {
+      current = (current + 1) % imageList.length;
+      img.src = imageList[current];
+      img.classList.add('show');
+    }, 400); // tempo entre fade out e fade in
+  }
+
+  img.classList.add('show');
+  setInterval(showNextImage, 4000); // muda de imagem a cada 4 segundos
+});
