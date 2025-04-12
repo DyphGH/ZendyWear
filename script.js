@@ -82,28 +82,40 @@ window.addEventListener('DOMContentLoaded', () => {
 
   fadeInElements.forEach(el => observer.observe(el));
 
-  // Carrossel suave: mostrar nova imagem antes de esconder a antiga
+  // Corrigir carrossel: remover imagem anterior ANTES de adicionar nova
   const spotlight = document.querySelector('.collection-spotlight');
   if (spotlight) {
     const imageList = ['e30s.png', 'supras.png', 'r32s.png'];
     let current = 0;
 
-    const img = spotlight.querySelector('.carousel-image');
+    let img = spotlight.querySelector('.carousel-image');
     if (!img) return;
 
     img.classList.add('show');
-    setInterval(() => {
-      current = (current + 1) % imageList.length;
-      const nextImage = new Image();
-      nextImage.src = imageList[current];
-      nextImage.className = 'carousel-image show';
-      spotlight.appendChild(nextImage);
 
+    setInterval(() => {
+      const next = (current + 1) % imageList.length;
+
+      // criar nova imagem
+      const newImg = new Image();
+      newImg.src = imageList[next];
+      newImg.className = 'carousel-image';
+      spotlight.appendChild(newImg);
+
+      // mostrar nova imagem
       setTimeout(() => {
-        spotlight.removeChild(img);
-        nextImage.classList.add('show');
-        img = nextImage;
-      }, 600);
+        newImg.classList.add('show');
+      }, 10);
+
+      // esconder e remover a antiga depois da transição
+      setTimeout(() => {
+        img.classList.remove('show');
+        setTimeout(() => {
+          spotlight.removeChild(img);
+          img = newImg;
+          current = next;
+        }, 600); // tempo da transição CSS
+      }, 400); // tempo antes de remover a anterior
     }, 4000);
   }
 });
