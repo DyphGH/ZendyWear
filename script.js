@@ -85,7 +85,15 @@ window.addEventListener('DOMContentLoaded', () => {
   // Corrigir carrossel: remover imagem anterior ANTES de adicionar nova
   const spotlight = document.querySelector('.collection-spotlight');
   if (spotlight) {
-    const imageList = ['e30s.png', 'supras.png', 'r32s.png'];
+    const imageList = [
+  'e30s.png',
+  'supras.png',
+  'r32s.png',
+  'golf6gti.png',
+  'GOLFGTDSv1.png',
+  'audis3s.png',
+  'AUDIA3MODEL.png'
+];
     let current = 0;
 
     let img = spotlight.querySelector('.carousel-image');
