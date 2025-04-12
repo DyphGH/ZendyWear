@@ -1,3 +1,4 @@
+
 function glitchCharEffect(el, finalText, delay = 20, onComplete = null) {
   const chars = '#$%&@*';
   el.textContent = '';
@@ -31,7 +32,7 @@ function glitchCharEffect(el, finalText, delay = 20, onComplete = null) {
         i++;
         revealNext();
       }
-    }, 12); // ultra rápido
+    }, 12);
   }
 
   revealNext();
@@ -67,4 +68,17 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // Fade-in animado com Intersection Observer
+  const fadeInElements = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  fadeInElements.forEach(el => observer.observe(el));
 });
