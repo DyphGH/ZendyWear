@@ -91,8 +91,6 @@ window.addEventListener('DOMContentLoaded', () => {
   'r32s.png',
   'golf6gti.png',
   'GOLFGTDSv1.png',
-  'audis3s.png',
-  'AUDIA3MODEL.png'
 ];
     let current = 0;
 
@@ -122,8 +120,8 @@ window.addEventListener('DOMContentLoaded', () => {
           spotlight.removeChild(img);
           img = newImg;
           current = next;
-        }, 600); // tempo da transição CSS
-      }, 400); // tempo antes de remover a anterior
-    }, 4000);
+        }, 300); // tempo da transição CSS
+      }, 300); // tempo antes de remover a anterior
+    }, 2500);
   }
 });
