@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Fade-in animado com Intersection Observer
+  // Fade-in animado
   const fadeInElements = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -81,29 +81,29 @@ window.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
 
   fadeInElements.forEach(el => observer.observe(el));
-});
 
-
-// Carrossel automático para coleção com fade + zoom
-window.addEventListener('DOMContentLoaded', () => {
+  // Carrossel suave: mostrar nova imagem antes de esconder a antiga
   const spotlight = document.querySelector('.collection-spotlight');
-  if (!spotlight) return;
+  if (spotlight) {
+    const imageList = ['e30s.png', 'supras.png', 'r32s.png'];
+    let current = 0;
 
-  const imageList = ['e30s.png', 'supras.png', 'r32s.png'];
-  let current = 0;
+    const img = spotlight.querySelector('.carousel-image');
+    if (!img) return;
 
-  const img = spotlight.querySelector('.carousel-image');
-  if (!img) return;
-
-  function showNextImage() {
-    img.classList.remove('show');
-    setTimeout(() => {
+    img.classList.add('show');
+    setInterval(() => {
       current = (current + 1) % imageList.length;
-      img.src = imageList[current];
-      img.classList.add('show');
-    }, 400); // tempo entre fade out e fade in
-  }
+      const nextImage = new Image();
+      nextImage.src = imageList[current];
+      nextImage.className = 'carousel-image show';
+      spotlight.appendChild(nextImage);
 
-  img.classList.add('show');
-  setInterval(showNextImage, 4000); // muda de imagem a cada 4 segundos
+      setTimeout(() => {
+        spotlight.removeChild(img);
+        nextImage.classList.add('show');
+        img = nextImage;
+      }, 600);
+    }, 4000);
+  }
 });
