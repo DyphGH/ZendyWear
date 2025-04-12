@@ -82,16 +82,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
   fadeInElements.forEach(el => observer.observe(el));
 
-  // Corrigir carrossel: remover imagem anterior ANTES de adicionar nova
+  // Carrossel com clique que scrolla para a loja
   const spotlight = document.querySelector('.collection-spotlight');
   if (spotlight) {
     const imageList = [
-  'e30s.png',
-  'supras.png',
-  'r32s.png',
-  'golf6gti.png',
-  'GOLFGTDSv1.png',
-];
+      'e30s.png',
+      'supras.png',
+      'r32s.png',
+      'golf6gti.png',
+      'GOLFGTDSv1.png',
+    ];
     let current = 0;
 
     let img = spotlight.querySelector('.carousel-image');
@@ -102,26 +102,31 @@ window.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
       const next = (current + 1) % imageList.length;
 
-      // criar nova imagem
       const newImg = new Image();
       newImg.src = imageList[next];
       newImg.className = 'carousel-image';
       spotlight.appendChild(newImg);
 
-      // mostrar nova imagem
       setTimeout(() => {
         newImg.classList.add('show');
       }, 10);
 
-      // esconder e remover a antiga depois da transição
       setTimeout(() => {
         img.classList.remove('show');
         setTimeout(() => {
           spotlight.removeChild(img);
           img = newImg;
           current = next;
-        }, 300); // tempo da transição CSS
-      }, 300); // tempo antes de remover a anterior
+        }, 300);
+      }, 300);
     }, 2500);
+
+    // Scroll suave para a loja ao clicar na coleção
+    spotlight.addEventListener('click', () => {
+      const shopSection = document.querySelector('#collection-shop');
+      if (shopSection) {
+        shopSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   }
 });
