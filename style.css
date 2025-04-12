@@ -367,12 +367,13 @@ body {
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
   transition: opacity 0.6s ease, transform 0.6s ease;
+  background: transparent;
+  pointer-events: none;
 }
 
 .carousel-image.show {
