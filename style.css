@@ -337,3 +337,30 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+.collection-spotlight {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-image {
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  transition: opacity 1s ease, transform 1s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.carousel-image.show {
+  opacity: 1;
+  transform: scale(1.03);
+}
