@@ -38,7 +38,7 @@ function glitchCharEffect(el, finalText, delay = 20, onComplete = null) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  // glitch na página principal
+  // glitch na homepage
   const hero = document.querySelector('.hero-overlay');
   if (hero) {
     const h1 = hero.querySelector('h1');
@@ -54,7 +54,23 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // glitch da seção collection — só ativa ao aparecer no ecrã
+  // glitch na página about.html
+  const about = document.querySelector('.about-overlay');
+  if (about) {
+    const h1 = about.querySelector('h1');
+    const p = about.querySelector('p');
+    if (h1 && p) {
+      const h1Text = h1.textContent;
+      const pText = p.textContent;
+      h1.textContent = '';
+      p.textContent = '';
+      glitchCharEffect(h1, h1Text, 20, () => {
+        setTimeout(() => glitchCharEffect(p, pText, 15), 100);
+      });
+    }
+  }
+
+  // glitch na seção collection (só quando estiver visível)
   const collectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -134,7 +150,6 @@ window.addEventListener('DOMContentLoaded', () => {
       }, 300);
     }, 2500);
 
-    // scroll suave para a loja
     spotlight.addEventListener('click', () => {
       const shopSection = document.querySelector('#collection-shop');
       if (shopSection) {
