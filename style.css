@@ -468,3 +468,16 @@ body {
 .collection-spotlight:hover .collection-overlay {
   opacity: 1;
 }
+.collection-text-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.collection-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+}
