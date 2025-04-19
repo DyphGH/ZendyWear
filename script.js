@@ -1,4 +1,3 @@
-
 function glitchCharEffect(el, finalText, delay = 20, onComplete = null) {
   const chars = '#$%&@*';
   el.textContent = '';
@@ -39,6 +38,7 @@ function glitchCharEffect(el, finalText, delay = 20, onComplete = null) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+  // glitch na página principal
   const hero = document.querySelector('.hero-overlay');
   if (hero) {
     const h1 = hero.querySelector('h1');
@@ -54,19 +54,32 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const about = document.querySelector('.about-overlay');
-  if (about) {
-    const h1 = about.querySelector('h1');
-    const p = about.querySelector('p');
-    if (h1 && p) {
-      const h1Text = h1.textContent;
-      const pText = p.textContent;
-      h1.textContent = '';
-      p.textContent = '';
-      glitchCharEffect(h1, h1Text, 20, () => {
-        setTimeout(() => glitchCharEffect(p, pText, 15), 100);
-      });
-    }
+  // glitch da seção collection — só ativa ao aparecer no ecrã
+  const collectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const collection = entry.target;
+        const h2 = collection.querySelector('h2');
+        const p = collection.querySelector('p');
+
+        if (h2 && p && !h2.dataset.glitched) {
+          const h2Text = h2.textContent;
+          const pText = p.textContent;
+          h2.textContent = '';
+          p.textContent = '';
+          h2.dataset.glitched = true;
+
+          glitchCharEffect(h2, h2Text, 20, () => {
+            setTimeout(() => glitchCharEffect(p, pText, 15), 100);
+          });
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const collectionSection = document.querySelector('.collection-content');
+  if (collectionSection) {
+    collectionObserver.observe(collectionSection);
   }
 
   // Fade-in animado
@@ -82,7 +95,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   fadeInElements.forEach(el => observer.observe(el));
 
-  // Carrossel com clique que scrolla para a loja
+  // Carrossel + scroll para loja ao clicar
   const spotlight = document.querySelector('.collection-spotlight');
   if (spotlight) {
     const imageList = [
@@ -121,45 +134,12 @@ window.addEventListener('DOMContentLoaded', () => {
       }, 300);
     }, 2500);
 
-    // Scroll suave para a loja ao clicar na coleção
+    // scroll suave para a loja
     spotlight.addEventListener('click', () => {
       const shopSection = document.querySelector('#collection-shop');
       if (shopSection) {
         shopSection.scrollIntoView({ behavior: 'smooth' });
       }
     });
-  }
-});
-window.addEventListener('DOMContentLoaded', () => {
-  // texto da página principal
-  const hero = document.querySelector('.hero-overlay');
-  if (hero) {
-    const h1 = hero.querySelector('h1');
-    const p = hero.querySelector('p');
-    if (h1 && p) {
-      const h1Text = h1.textContent;
-      const pText = p.textContent;
-      h1.textContent = '';
-      p.textContent = '';
-      glitchCharEffect(h1, h1Text, 20, () => {
-        setTimeout(() => glitchCharEffect(p, pText, 15), 100);
-      });
-    }
-  }
-
-  // texto da página de coleções
-  const collection = document.querySelector('.collection-content');
-  if (collection) {
-    const h2 = collection.querySelector('h2');
-    const p = collection.querySelector('p');
-    if (h2 && p) {
-      const h2Text = h2.textContent;
-      const pText = p.textContent;
-      h2.textContent = '';
-      p.textContent = '';
-      glitchCharEffect(h2, h2Text, 20, () => {
-        setTimeout(() => glitchCharEffect(p, pText, 15), 100);
-      });
-    }
   }
 });
