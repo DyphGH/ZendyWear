@@ -183,19 +183,21 @@ body {
 .collection-section {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 120px 60px 60px 60px;
+  padding: 140px 60px 60px 60px; /* aumenta a margem do topo */
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
   text-align: left;
-  flex-direction: column;
+  gap: 40px; /* espaço entre texto e imagem */
 }
+
 
 .collection-content {
   max-width: 700px;
   color: #fff;
-  margin-bottom: 40px;
+  margin: 0;
 }
 
 .collection-content h2 {
