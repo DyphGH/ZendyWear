@@ -336,10 +336,11 @@ body {
 
 .collection-wrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 100%;
-  padding: 0 60px;
+  padding: 60px;
   height: 100%;
 }
 
@@ -348,8 +349,9 @@ body {
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 40px;
 }
 
 .collection-spotlight::after {
