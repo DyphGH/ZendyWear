@@ -208,6 +208,7 @@ body {
   color: #ccc;
   line-height: 1.6;
 }
+
 .hero-overlay {
   background: rgba(0, 0, 0, 0.6);
   padding: 40px;
@@ -284,36 +285,37 @@ body {
 }
 
 @keyframes glitch {
-  0% {
-    transform: translate(0);
-    opacity: 0.2;
-  }
-  20% {
-    transform: translate(-3px, -3px);
-    opacity: 0.4;
-  }
-  40% {
-    transform: translate(3px, 3px);
-    opacity: 0.3;
-  }
-  60% {
-    transform: translate(-2px, 2px);
-    opacity: 0.5;
-  }
-  80% {
-    transform: translate(2px, -2px);
-    opacity: 0.4;
-  }
-  100% {
-    transform: translate(0);
-    opacity: 0.2;
-  }
+  0% { transform: translate(0); opacity: 0.2; }
+  20% { transform: translate(-3px, -3px); opacity: 0.4; }
+  40% { transform: translate(3px, 3px); opacity: 0.3; }
+  60% { transform: translate(-2px, 2px); opacity: 0.5; }
+  80% { transform: translate(2px, -2px); opacity: 0.4; }
+  100% { transform: translate(0); opacity: 0.2; }
+}
+
+.collection-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 60px;
+  height: 100%;
+}
+
+.collection-content {
+  max-width: 500px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .collection-spotlight {
-  flex: 1;
+  width: 400px;
+  height: 500px;
+  position: relative;
   display: flex;
-  gap: 20px;
   justify-content: center;
   align-items: center;
 }
@@ -342,45 +344,55 @@ body {
   transform: translateY(0);
 }
 
-.collection-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.carousel-image {
   width: 100%;
-  padding: 0 60px;
   height: 100%;
-}
-
-.collection-content {
-  max-width: 500px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-}
-
-.collection-spotlight {
-  width: 400px;
-  height: 500px;
-  position: relative;
-}
-
-.collection-spotlight::after {
-  content: "Zendy Drive";
+  object-fit: cover;
+  border-radius: 12px;
   position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.6);
+  top: 0;
+  left: 0;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  background: transparent;
   pointer-events: none;
 }
 
-.collection-spotlight:hover::after {
+.carousel-image.show {
   opacity: 1;
+  transform: scale(1.03);
+  z-index: 1;
+}
+
+.collection-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 90%;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.collection-spotlight:hover .collection-overlay {
+  opacity: 1;
+}
+
+.collection-title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  pointer-events: auto;
+  cursor: pointer;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .collection-shop {
@@ -403,25 +415,4 @@ body {
   font-size: 1.2rem;
   color: #ccc;
   max-width: 600px;
-}
-
-/* Carrossel */
-.carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  background: transparent;
-  pointer-events: none;
-}
-
-.carousel-image.show {
-  opacity: 1;
-  transform: scale(1.03);
-  z-index: 1;
 }
