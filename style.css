@@ -208,6 +208,7 @@ body {
   color: #ccc;
   line-height: 1.6;
 }
+
 .hero-overlay {
   background: rgba(0, 0, 0, 0.6);
   padding: 40px;
@@ -316,6 +317,8 @@ body {
   gap: 20px;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .collection-spotlight img {
@@ -329,6 +332,27 @@ body {
 
 .collection-spotlight img:hover {
   transform: scale(1.05);
+}
+
+.collection-spotlight::after {
+  content: "Zendy Drive";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.collection-spotlight:hover::after {
+  opacity: 1;
 }
 
 .fade-in {
@@ -358,29 +382,6 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100%;
-}
-
-.collection-spotlight {
-  width: 400px;
-  height: 500px;
-  position: relative;
-}
-
-.collection-spotlight::after {
-  content: "Zendy Drive";
-  position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.6);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.collection-spotlight:hover::after {
-  opacity: 1;
 }
 
 .collection-shop {
