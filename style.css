@@ -208,21 +208,112 @@ body {
   color: #ccc;
   line-height: 1.6;
 }
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 700px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
 
-.collection-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.hero-overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-overlay p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 30px;
+}
+
+.shop-button {
+  position: relative;
+  display: inline-block;
+  padding: 14px 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: #ff4655;
+  border: none;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 20px rgba(255, 70, 85, 0.6);
+}
+
+.shop-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 0, 200, 0.9), 0 0 40px rgba(0, 255, 247, 0.9);
+}
+
+.shop-button::before,
+.shop-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 0 60px;
   height: 100%;
+  border-radius: 50px;
+  background: inherit;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.shop-button::before {
+  animation: glitch 1s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  background: #ff00c8;
+}
+
+.shop-button::after {
+  animation: glitch 1s infinite linear;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  background: #00fff7;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    opacity: 0.2;
+  }
+  20% {
+    transform: translate(-3px, -3px);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translate(3px, 3px);
+    opacity: 0.3;
+  }
+  60% {
+    transform: translate(-2px, 2px);
+    opacity: 0.5;
+  }
+  80% {
+    transform: translate(2px, -2px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 0.2;
+  }
 }
 
 .collection-spotlight {
-  width: 400px;
-  height: 500px;
-  position: relative;
+  flex: 1;
   display: flex;
+  gap: 20px;
   justify-content: center;
   align-items: center;
 }
@@ -240,36 +331,56 @@ body {
   transform: scale(1.05);
 }
 
-.collection-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 90%;
-  height: 40px;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
+.fade-in {
   opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 2;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.collection-spotlight:hover .collection-overlay {
+.fade-in.show {
   opacity: 1;
+  transform: translateY(0);
 }
 
-.collection-title {
-  color: #fff;
-  font-size: 1rem;
-  font-weight: bold;
-  pointer-events: auto;
-  cursor: pointer;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+.collection-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 60px;
+  height: 100%;
+}
+
+.collection-content {
+  max-width: 500px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.collection-spotlight {
+  width: 400px;
+  height: 500px;
+  position: relative;
+}
+
+.collection-spotlight::after {
+  content: "Zendy Drive";
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.collection-spotlight:hover::after {
+  opacity: 1;
 }
 
 .collection-shop {
@@ -313,4 +424,35 @@ body {
   opacity: 1;
   transform: scale(1.03);
   z-index: 1;
+}
+.collection-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 90%;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.collection-spotlight:hover .collection-overlay {
+  opacity: 1;
+}
+
+.collection-title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  pointer-events: auto;
+  cursor: pointer;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
